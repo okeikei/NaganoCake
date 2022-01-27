@@ -1,0 +1,25 @@
+<%= link_to "全て削除", all_destroy_path, method: :delete, class: 'nav-link text-dark' %>
+<thead>
+    <th>単価(税込)</th>
+    <th>小計</th>
+</thead>
+<% @total_payment = 0 %>
+
+<% @cart_items.each do |cart_item| %>
+ <div>
+  <td><%= cart_item.item.name %></td></br>
+  <td><%= cart_item.item.price %></td>
+  <td><%= cart_item.item.with_tax_price %></td></br>
+  <td><%= cart_item.item.shipping_cost %></td></br>
+  <td><%= cart_item.subtotal %></td>
+   <% @total_payment += cart_item.subtotal %>
+   <%= form_with model:cart_item, url: "/cart_item/#{cart_item.id}", method: :patch, local:true do |f| %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.submit '変更' %>
+    <%= link_to "削除", destroy_path(cart_item), method: :delete, class: 'nav-link text-dark' %>
+</div>
+<% end %>
+<% end %>
+<%= @total_payment %>
+    <%= link_to "買い物を続ける", item_index_path, class: 'nav-link text-dark' %>
+    <%= link_to "情報入力へ進む", orders_new_path, class: 'nav-link text-dark' %>

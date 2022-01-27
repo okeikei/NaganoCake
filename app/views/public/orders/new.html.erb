@@ -1,0 +1,33 @@
+<h1>注文情報入力</h1>
+<%= form_with model: @order, url: orders_comfirm_path, method: :post, local:true do |f| %>
+
+  <h4>支払方法</h4>
+  <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+  <%= f.label :payment_method, Order.payment_methods_i18n[:クレジットカード] %></br>
+
+  <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+  <%= f.label :payment_method, Order.payment_methods_i18n[:銀行振込]%>
+  
+  <h4>お届け先</h4>
+  <%= f.radio_button :address_option, 0 %>
+  <%= f.label :address_id, Order.address_ids_i18n[:ご自身の住所] %></br>
+  <%= @customer.customer_infomation %>
+  
+  </br><%= f.radio_button :address_option, 1 %>
+  <%= f.label :address_id, Order.address_ids_i18n[:登録済住所から選択] %></br>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %></br>
+  
+  <%= f.radio_button :address_option, 2 %>
+  <%= f.label :address_id, Order.address_ids_i18n[:新しいお届け先] %>
+  
+  </br><label for="inputName">郵便番号</label>
+  <%= f.text_field :postal_code, autofocus: true, id:"inputName", placeholder:"郵便番号"%></br>
+  
+  <label for="inputName">住所</label>
+  <%= f.text_field :address, autofocus: true, id:"inputName", placeholder:"住所"%></br>
+  
+  <label for="inputName">宛名</label>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"宛名"%></br>
+
+  <%= f.submit "変更を保存" %>
+<% end %>

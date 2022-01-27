@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>本当に退会しますか？</h2>
+
+      <%= link_to "はい", customer_withdraw_path, method: :patch, class: 'nav-link text-dark' ,"data-confirm" => "本当に退会しますか？" %>
+      
+      <%= link_to "いいえ", customer_show_path, class: 'nav-link text-dark' %>

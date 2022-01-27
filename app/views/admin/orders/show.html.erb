@@ -1,0 +1,32 @@
+<div>
+ <p>アイテム名：<%= @order.name %></p>
+ <p>購入日時：<%= @order.updated_at %></p>
+ <p>配送先：<%= @order.postal_code %></p>
+ <p>支払方法：<%= @order.payment_method %></p>
+ 
+ <%= form_with model:@order, url:"/admin/orders/#{@order.id}", method: :patch, local:true do |f| %>
+  <%= f.select :status, Order.statuses.keys.to_a %>
+  <%= f.submit "変更を保存" %><br>
+ <% end %>
+</div>
+<% @total_payment = 0 %>
+<div>
+ <% @order_details.each do |order_detail| %>
+  <p>商品名<br><%= order_detail.item.name %></p>
+  <p>単価<br><%= order_detail.item.with_tax_price %></p>
+  <br><p>数量<br><%= order_detail.amount %></p>
+  <br><p>小計<br><%= order_detail.subtotal %></p>
+  <% @total_payment += order_detail.subtotal %>
+  <p>製作ステータス</p>
+  <%= form_with model:order_detail, url: admin_order_detail_path(order_detail.id), method: :patch, local:true do |f| %>
+  <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
+  <%= f.submit "変更を保存" %><br>
+ <% end %>
+ <% end %>
+</div>
+
+<div>
+ <p>商品合計：<%= @total_payment %></p>
+ <p>送料：<%= @order.shipping_cost %></p>
+ <p>請求金額合計：<%= @order.total_payment %></p>
+</div>

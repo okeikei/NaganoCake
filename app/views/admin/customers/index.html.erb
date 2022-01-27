@@ -1,0 +1,11 @@
+<% @customers.each do |customer| %>
+<div>
+  <%= link_to admin_customer_path(customer.id) do %>
+  <p>
+   名前：<%= customer.last_name %>
+   メールアドレス：<%= customer.email %>
+   会員ステータス：<%= customer.is_deleted %>
+  </p>
+  <% end %>
+</div>
+<% end %>

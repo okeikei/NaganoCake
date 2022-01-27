@@ -1,0 +1,32 @@
+<div class="row">
+ <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <p>last_name</p>
+  <p><%= @customer.last_name %></p>
+  
+  <p>first_name</p>
+  <p><%= @customer.first_name %></p>
+  
+  <p>last_name_kana</p>
+  <p><%= @customer.last_name_kana %></p>
+  
+  <p>first_name_kana</p>
+  <p><%= @customer.first_name_kana %></p>
+  
+  <p>email</p>
+  <p><%= @customer.email %></p>
+  
+  <p>full_address</p>
+  <p><%= @customer.full_address %></p>
+  
+  <p>telephone_number</p>
+  <p><%= @customer.telephone_number %></p>
+
+  <%= link_to "編集", customer_edit_path, class: 'nav-link text-dark' %>
+ 
+  <%= link_to "退会", customer_unsubscribe_path, class: 'nav-link text-dark' %>
+  
+  <%= link_to "配送先", addresses_path, class: 'nav-link text-dark' %>
+  
+  <%= link_to "注文履歴", addresses_path, class: 'nav-link text-dark' %>
+ </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>プロフィール編集</h2>
+<%= form_with model:@customer, url:"/customer", local:true do |f| %>
+
+  <label for="inputName">last_name</label>
+  <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"姓"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">first_name</label>
+  <%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"名"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">last_name_kana</label>
+  <%= f.text_field :last_name_kana, autofocus: true, id:"inputName", placeholder:"姓カナ"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">first_name_kana</label>
+  <%= f.text_field :first_name_kana, autofocus: true, id:"inputName", placeholder:"名カナ"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">email</label>
+  <%= f.text_field :email, autofocus: true, id:"inputName", placeholder:"メールアドレス"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">postal_code</label>
+  <%= f.text_field :postal_code, autofocus: true, id:"inputName", placeholder:"郵便番号"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">address</label>
+  <%= f.text_field :address, autofocus: true, id:"inputName", placeholder:"住所"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  <label for="inputName">telephone_number</label>
+  <%= f.text_field :telephone_number, autofocus: true, id:"inputName", placeholder:"電話番号"%>
+  <%= f.submit "変更を保存" %><br>
+  
+  </div>
+</div>
+　<%= link_to "配送先登録", addresses_path, class: 'nav-link text-dark' %>
+  
+<% end %>

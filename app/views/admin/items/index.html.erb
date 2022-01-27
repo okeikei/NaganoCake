@@ -1,0 +1,11 @@
+<% @items.each do |item| %>
+ <div>
+  <%= link_to admin_item_path(item.id) do %>
+  <%= attachment_image_tag item, :image %>
+  <% end %>
+  <p>アイテム名：<%= item.name %></p>
+  <p>説明：<%= item.introduction %></p>
+  <p>値段：<%= item.price %></p>
+  <p>販売ステータス：<%= item.is_active %></p>
+</div>
+<% end %>

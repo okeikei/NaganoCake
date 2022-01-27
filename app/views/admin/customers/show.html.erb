@@ -1,0 +1,30 @@
+<div class="row">
+ <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <p>last_name</p>
+  <p><%= @customer.last_name %></p>
+  
+  <p>first__name</p>
+  <p><%= @customer.first_name %></p>
+  
+  <p>last_name_kana</p>
+  <p><%= @customer.last_name_kana %></p>
+  
+  <p>first_name_kana</p>
+  <p><%= @customer.first_name_kana %></p>
+  
+  <p>email</p>
+  <p><%= @customer.email %></p>
+  
+  <p>full_addresss</p>
+  <p><%= @customer.full_address %></p>
+  
+  <p>telephone_number</p>
+  <p><%= @customer.telephone_number %></p>
+  
+  会員ステータス
+  <p><%= @customer.is_deleted %></p>
+
+  <%= link_to "編集", edit_admin_customer_path(@customer.id), class: 'nav-link text-dark' %>
+  <%= link_to "注文履歴", admin_root_path, class: 'nav-link text-dark' %>
+ </div>
+</div>

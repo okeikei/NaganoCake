@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>商品編集</h2>
+<%= form_with model:@item, url:"/admin/items/#{@item.id}", method: :patch, local:true do |f| %>
+
+　<label for="inputName">商品イメージ</label>
+  <%= f.attachment_field :image %><br>
+
+  <label for="inputName">商品名</label>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"商品名"%><br>
+  
+  <label for="inputName">説明</label>
+  <%= f.text_field :introduction, autofocus: true, id:"inputName", placeholder:"説明"%><br>
+  
+  <label for="inputName">値段</label>
+  <%= f.number_field :price, autofocus: true, id:"inputPrice", placeholder:"値段"%><br>
+  
+  <%= f.radio_button :is_active, "販売中" %>
+  <%= f.label :is_active, "販売中" %>
+
+  <%= f.radio_button :is_active, "販売停止中" %>
+  <%= f.label :is_active, "販売停止中" %></br>
+  
+  <%= f.submit "変更を保存" %><br>
+  
+  
+  
+  
+<% end %>

@@ -1,0 +1,10 @@
+<h5>トップページ</h5>
+
+<h3>商品</h3>
+<% @items.each do |item| %>
+<div>
+  <%= attachment_image_tag item, :image %>
+  <p>アイテム名：<%= item.name %></p>
+  <p>説明：<%= item.introduction %></p>
+</div>
+<% end %>
