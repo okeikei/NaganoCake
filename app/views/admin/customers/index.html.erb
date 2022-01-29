@@ -4,7 +4,11 @@
   <p>
    名前：<%= customer.last_name %>
    メールアドレス：<%= customer.email %>
-   会員ステータス：<%= customer.is_deleted %>
+   <% if customer.is_deleted == false %>
+    会員ステータス: 有効
+    <% else %>
+    会員ステータス: 退会
+   <% end %>
   </p>
   <% end %>
 </div>

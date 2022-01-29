@@ -21,8 +21,11 @@
   <p>telephone_number</p>
   <p><%= @customer.telephone_number %></p>
   
-  会員ステータス
-  <p><%= @customer.is_deleted %></p>
+   <% if @customer.is_deleted == false %>
+    会員ステータス: 有効
+    <% else %>
+    会員ステータス: 退会
+   <% end %>
 
   <%= link_to "編集", edit_admin_customer_path(@customer.id), class: 'nav-link text-dark' %>
   <%= link_to "注文履歴", admin_root_path, class: 'nav-link text-dark' %>

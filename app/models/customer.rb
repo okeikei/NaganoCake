@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   
   has_many :cart_items
   
-  enum is_deleted: { 有効: false, 退会: true}
+  has_many :addresses
   
   def customer_infomation
     self.postal_code + self.address + self.last_name + self.first_name

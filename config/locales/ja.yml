@@ -15,3 +15,5 @@ ja: # 日本語の設定を行う
         waiting: '製作待ち'
         production: '製作中'
         conmplete: '製作完了'
+  
+  

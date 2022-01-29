@@ -1,5 +1,5 @@
 <h1>商品投稿フォーム</h1>
-<%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+<%= form_with model: @item, url: admin_items_path, method: :post, local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :image %>
    <h4>商品名</h4>
@@ -9,14 +9,13 @@
   
   <div>
   <h4>ジャンル選択</h4>
-  <%= form_with model:@genre, url:admin_items_path, method: :patch, local:true do |f| %>
-   <%= f.label :name_id, Genre.name_ids_i18n[:登録済ジャンルから選択] %></br>
+  <%= form_with model:@genre, url: admin_items_path, method: :post, local:true do |f| %>
+   <%#= f.label :name_id, Genre.name_ids_i18n[:登録済ジャンルから選択] %>
    <%= f.select :name_id, options_from_collection_for_select(Genre.all, :id, :name) %>
   </div>
   
-  <% end %>
    <h4>値段</h4>
-   <%= f.text_area :price %></br>
+   <%= f.text_field :price %></br>
   
    <h4>販売ステータス</h4>
    <%= f.radio_button :is_active, "販売中" %>
@@ -25,4 +24,5 @@
    <%= f.radio_button :is_active, "販売停止中" %>
    <%= f.label :is_active, "販売停止中" %></br>
    <%= f.submit '投稿' %>
+<% end %>
 <% end %>
